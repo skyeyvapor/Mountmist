@@ -1,0 +1,21 @@
+<!doctype html>
+<title>Login Page</title>
+
+<form action="/login" method="POST">
+
+  {% if error %}
+  <p style="color:red;">
+  {{error}}
+	</p>
+  {% endif %}
+
+	<p>
+		Username: <input type="text" name="username" />
+	</p>
+
+	<p>
+		Password: <input type="password" name="password" /> <!-- use type password can hide text-->
+	</p>
+
+	<button type="Submit">Login</bottun>
+</form>
