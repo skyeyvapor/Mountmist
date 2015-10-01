@@ -30,6 +30,7 @@ def login():
   #  return '<form method="post" action="/login"><input type="text" name="username" /><p><button type="submit">Submit</button>'
   return render_template('login.html', error=error)
 
+
 def valid_login(username, password):
 	# check on the db if the username and password correct
 	if username == password:
@@ -37,15 +38,17 @@ def valid_login(username, password):
 	else:
 		return False
 
+
 @app.route('/profile/<username>')
 def show_user_profile(username):
 	#= return 'User: ' + str(username)
 	return 'User: %s' % username
 
+
 @app.route('/post/<int:post_id>')
 def show_post(post_id):
 	#return 'Post: ' + str(post_id)
-	return 'Post: %d' % post_id
+    return 'Post: %d' % post_id
 
 @app.route('/')
 def show_url_for():
@@ -54,9 +57,9 @@ def show_url_for():
 
 
 #underscore
-if __name__ == '__main__': #if the name of this file that's running is = __main__, which means that's been run from the terminal
+if __name__ == '__main__':
+#if the name of this file that's running is = __main__, which means that's been run from the terminal
 #if application is runned from the shell
-  app.debug = True #you can see the change save right after 
-  #=app.run(debug=True)
+  app.debug = True #you can see the change save right after  #=app.run(debug=True)
   app.run() #go ahead and run, or start a server
-	#otherwise doesn't make any sense to the python shell, cause that you will not see anything
+    #otherwise doesn't make any sense to the python shell, cause that you will not see anything
