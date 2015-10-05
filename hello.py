@@ -13,14 +13,20 @@ app = Flask(__name__) #instantiate Flask by passing a identifier(here we use MAG
 # (you can have mutiple Flask applications at the same time)
 '''
 @app.route('/') #@ is called decorator, which modify the following function on the next line
-#if someone hits the /, or top level of this app 
-def index(): #it does when user hits the / (the top folder) then call this function
-	return 'Index Page'
+#if someone hits the /, or top level of this app
+def index(): #it does when user hits the / (the top folder) then call this function return 'Index Page'
 '''
 
-#/blog?post=3 GET method
-#/login POST method not visible info
-@app.route('/login', methods=['GET', 'POST']) #the first method to render the form will be th GET request
+
+@app.route('/')
+@app.route('/index')
+def index():
+    return "Hello, World!"
+
+
+# /blog?post=3 GET method
+# /login POST method not visible info
+@app.route('/login', methods=['GET', 'POST'])  # the first method to render the form will be th GET request
 def login():
   error = None
 	#if request.values: #if have values
@@ -78,13 +84,15 @@ def valid_login(username, password):
 '''
 @app.route('/profile/<username>')
 def show_user_profile(username):
-	#= return 'User: ' + str(username)
-	return 'User: %s' % username
+    # = return 'User: ' + str(username)
+    return 'User: %s' % username
+
 
 @app.route('/post/<int:post_id>')
 def show_post(post_id):
-	#return 'Post: ' + str(post_id)
-	return 'Post: %d' % post_id
+    # return 'Post: ' + str(post_id)
+    return 'Post: %d' % post_id
+
 
 @app.route('/')
 def show_url_for():
